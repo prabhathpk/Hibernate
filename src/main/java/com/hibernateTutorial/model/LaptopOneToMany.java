@@ -1,12 +1,11 @@
 package com.hibernateTutorial.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
-public class Laptop {
+public class LaptopOneToMany {
     public int getLid() {
         return lid;
     }
@@ -27,7 +26,7 @@ public class Laptop {
     }
 
     private String name;
-    @OneToOne(mappedBy = "laptop" ,cascade = CascadeType.ALL)
-    private Student student;
+    @OneToMany(mappedBy = "laptop" ,cascade = CascadeType.ALL)
+    private List<StudentOneToMany> student;
 
 }

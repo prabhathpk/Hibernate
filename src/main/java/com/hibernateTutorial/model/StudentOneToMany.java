@@ -3,7 +3,7 @@ package com.hibernateTutorial.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Student {
+public class StudentOneToMany {
     public int getSno() {
         return sno;
     }
@@ -16,16 +16,16 @@ public class Student {
     private int sno;
     private String sName;
 
-    public Laptop getLaptop() {
+    public LaptopOneToMany getLaptop() {
         return laptop;
     }
 
-    public void setLaptop(Laptop laptop) {
+    public void setLaptop(LaptopOneToMany laptop) {
         this.laptop = laptop;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Laptop laptop;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private LaptopOneToMany laptop;
 
 
     public String getsName() {

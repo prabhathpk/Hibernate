@@ -2,8 +2,10 @@ package com.hibernateTutorial.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-public class Student {
+public class StudentManyToMany {
     public int getSno() {
         return sno;
     }
@@ -16,16 +18,17 @@ public class Student {
     private int sno;
     private String sName;
 
-    public Laptop getLaptop() {
+
+    public List<LaptopManyToMany> getLaptop() {
         return laptop;
     }
 
-    public void setLaptop(Laptop laptop) {
+    public void setLaptop(List<LaptopManyToMany> laptop) {
         this.laptop = laptop;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Laptop laptop;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<LaptopManyToMany> laptop;
 
 
     public String getsName() {
